@@ -36,4 +36,66 @@ function calc() {
       display.innerText = show;
     }
   }
+
+
+// for final evaluation
+else if (value === "=") {
+  if (show === "" || (opr === "/" && show === "0")) {
+    display.innerText = "Error!";
+    show = "";
+  } else if (opr === "-" && show[0] === "-") {
+    opr = "+";
+    op2 = show.slice(1);
+    show = eval(op1 + opr + op2);
+    if (Number.isInteger(show) === false) {
+      show = show.toFixed(3);
+    }
+    display.innerText = show;
+    opr = "";
+  } else {
+    check = true;
+    op2 = show;
+    if (opr === "%") {
+      show = op1 * (op2 / 100);
+    } else {
+      show = eval(op1 + opr + op2);
+    }
+    if (Number.isInteger(show) === false) {
+      show = show.toFixed(3);
+    }
+    display.innerText = show;
+    opr = "";
+  }
+}
+
+// for decimal
+else if (value === ".") {
+  if (check === true) {
+    check = false;
+    show += value;
+    display.innerText = show;
+  } else {
+    display.innerText = "Error!";
+  }
+}
+
+//For chnge positive no.to -ve or viceversa(+/-)
+else if (value === "+/-") {
+  if (show[0] === "-") {
+    show = show.slice(1);
+    display.innerText = show;
+  } else {
+    show = "-" + show;
+    display.innerText = show;
+  }
+}
+// for all numric 0 to 9
+else {
+  show += value;
+  display.innerText = show;
+  }
+}
+var btn_bucket = document.getElementsByClassName("btn");
+for (var i = 0; i < btn_bucket.length; i++) {
+btn_bucket[i].addEventListener("click", calc);
 }
