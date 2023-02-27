@@ -13,8 +13,6 @@ body {
   font-family: monospace;
   font-size: 0.9rem;
 }
-
-
 #container {
   height: 80vh;
   width: 70vw;
@@ -24,6 +22,8 @@ body {
   margin: auto;
   padding: 12px;
   border: 1px solid black;
+/*  box-shadow: gray;*/
+border-radius: 40px;
 }
 #text {
   color: ghostwhite;
@@ -36,6 +36,7 @@ body {
   margin-bottom: 16px;
   margin-top: 6px;
   letter-spacing: 1px;
+  border-radius: 19px;
 }
 #screen {
   height: 16vh;
@@ -43,7 +44,7 @@ body {
   background-color: white;
   opacity: 0.6;
   margin-bottom: 10px;
-  border: 1px solid black;
+  border: 2px solid black;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -54,6 +55,7 @@ body {
   overflow: hidden;
   color: rgb(54, 54, 54);
   box-sizing: border-box;
+  border-radius: 19px;
 }
 #btn-container {
   height: 48vh;
@@ -79,6 +81,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: monospace;
+  border-radius: 14px;
 }
 #zero {
   width: 50%;
