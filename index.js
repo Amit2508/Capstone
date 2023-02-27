@@ -18,7 +18,7 @@ function calc() {
     display.innerText = show;
   }
 
-  // for simple oprator
+  // logic for simple oprator
   else if (
     value === "+" ||
     value === "-" ||
@@ -38,7 +38,7 @@ function calc() {
   }
 
 
-// for final evaluation
+// final evaluation
 else if (value === "=") {
   if (show === "" || (opr === "/" && show === "0")) {
     display.innerText = "Error!";
@@ -79,7 +79,7 @@ else if (value === ".") {
   }
 }
 
-//For chnge positive no.to -ve or viceversa(+/-)
+//For changing positive no.to -ve or viceversa(+/-)
 else if (value === "+/-") {
   if (show[0] === "-") {
     show = show.slice(1);
