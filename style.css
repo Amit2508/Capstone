@@ -53,6 +53,7 @@ body {
   overflow: hidden;
   color: rgb(54, 54, 54);
   box-sizing: border-box;
+  border-radius: 19px;
 }
 #btn-container {
   height: 48vh;
@@ -78,6 +79,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: monospace;
+  border-radius: 14px;
 }
 #zero {
   width: 50%;
