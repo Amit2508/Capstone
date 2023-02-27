@@ -56,7 +56,7 @@ else if (value === "=") {
     check = true;
     op2 = show;
     if (opr === "%") {
-      show = op1 * (op2 / 100);
+      show = op1 % op2;
     } else {
       show = eval(op1 + opr + op2);
     }
