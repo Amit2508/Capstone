@@ -119,4 +119,66 @@ document.addEventListener("keydown", function (event) {
     opr = "";
     display.innerText = show;
   }
+  if (["+", "-", "*", "/", "%"].includes(event.key)) {
+    // console.log(event.key, "rr")
+    if (show === "" || opr !== "") {
+      display.innerText = "Error!";
+    } else {
+      opr = event.key;
+      check = true;
+      op1 = show;
+      show = "";
+      display.innerText = show;
+    }
+  }
+  if (event.key == "^") {
+    // console.log(event.key, "rr")
+    if (show === "" || opr !== "") {
+      display.innerText = "Error!";
+    } else {
+      opr = "**";
+      check = true;
+      op1 = show;
+      show = "";
+      display.innerText = show;
+    }
+  }
+  if (["=", "Enter"].includes(event.key)) {
+    if (show === "" || (opr === "/" && show === "0")) {
+      display.innerText = "Error!";
+      show = "";
+    } else if (opr === "-" && show[0] === "-") {
+      opr = "+";
+      op2 = show.slice(1);
+      show = eval(op1 + opr + op2);
+      if (Number.isInteger(show) === false) {
+        show = show.toFixed(3);
+      }
+      display.innerText = show;
+      opr = "";
+    } else {
+      check = true;
+      op2 = show;
+      if (opr === "%") {
+        show = op1 % op2;
+      } else {
+        show = eval(op1 + opr + op2);
+      }
+      if (Number.isInteger(show) === false) {
+        show = show.toFixed(3);
+      }
+      display.innerText = show;
+      opr = "";
+    }
+  }
+  if (event.key == ".") {
+    if (check === true) {
+      check = false;
+      show += event.key;
+      display.innerText = show;
+    } else {
+      display.innerText = "Error!";
+    }
+  }
+
 });
