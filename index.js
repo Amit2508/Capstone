@@ -18,7 +18,7 @@ function calc() {
     display.innerText = show;
   }
 
-  // logic for simple oprator
+  // logic for simple operator
   else if (
     value === "+" ||
     value === "-" ||
@@ -78,7 +78,7 @@ function calc() {
     }
   }
 
-  //For changing positive no.to -ve or viceversa(+/-)
+  //For changing positive no.to -ve or vice versa(+/-)
   else if (value === "+/-") {
     if (show[0] === "-") {
       show = show.slice(1);
@@ -88,7 +88,7 @@ function calc() {
       display.innerText = show;
     }
   }
-  // for all numric 0 to 9
+  // for all numeric 0 to 9
   else {
     show += value;
     display.innerText = show;
