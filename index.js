@@ -43,12 +43,13 @@ function calculate(value) {
     show = "";
     display.innerText = show;
   } else if (value == "=") {
+    if (show != "") {
     if (["+", "-", "/", "*", "."].includes(show.charAt(show.length - 1))) {
       show = show.slice(0, -1);
     }
     ans = eval(show);
     display.innerText = ans;
-    show = "";
+    show = "";}
   } else {
     if (["+", "-", "/", "*"].includes(value)) {
       if (show == "") {
