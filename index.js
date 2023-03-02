@@ -40,7 +40,7 @@ function calc() {
   // final evaluation
   else if (value === "=") {
     if (show === "" || (opr === "/" && show === "0")) {
-      display.innerText = "Error!";
+      display.innerText = "Division Error!";
       show = "";
     } else if (opr === "-" && show[0] === "-") {
       opr = "+";
@@ -98,6 +98,8 @@ var btn_bucket = document.getElementsByClassName("btn");
 for (var i = 0; i < btn_bucket.length; i++) {
   btn_bucket[i].addEventListener("click", calc);
 }
+
+
 document.addEventListener("keydown", function (event) {
   // console.log("Key pressed: " + event.key);
   if (event.key in [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) {
@@ -145,11 +147,12 @@ document.addEventListener("keydown", function (event) {
   }
   if (["=", "Enter"].includes(event.key)) {
     if (show === "" || (opr === "/" && show === "0")) {
-      display.innerText = "Error!";
+      display.innerText = "Division Error!";
       show = "";
     } else if (opr === "-" && show[0] === "-") {
       opr = "+";
       op2 = show.slice(1);
+      // console.log(op1 + opr + op2)
       show = eval(op1 + opr + op2);
       if (Number.isInteger(show) === false) {
         show = show.toFixed(3);
