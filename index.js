@@ -107,6 +107,23 @@ function calculate(value) {
         }
         display.innerText = show;
       }
+    } else if (value == ".") {
+      if (show == "") {
+        show = "0" + value;
+      } else if (["+", "-", "/", "*"].includes(show.charAt(show.length - 1))) {
+        show += "0" + value;
+      } else {
+        lcA = show.lastIndexOf("+");
+        lcS = show.lastIndexOf("-");
+        lcM = show.lastIndexOf("*");
+        lcD = show.lastIndexOf("/");
+        mlc = Math.max.apply(null, [lcA, lcS, lcM, lcD]);
+        lcP = show.lastIndexOf(".");
+        if (lcP <= mlc) {
+          show += ".";
+        }
+      }
+      display.innerText = show;
     } else {
       show += value;
       display.innerText = show;
